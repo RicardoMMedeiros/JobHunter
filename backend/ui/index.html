@@ -1,0 +1,98 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JobHunter AI</title>
+  <link rel="stylesheet" href="/ui/static/style.css" />
+  <script defer src="/ui/static/app.js"></script>
+</head>
+<body>
+  <div class="bg"></div>
+
+  <header class="top">
+    <div class="brand">
+      <div class="mark">JH</div>
+      <div>
+        <div class="title">JobHunter AI</div>
+        <div class="subtitle">Busca, organiza e avalia vagas. Voce decide quando aplicar.</div>
+      </div>
+    </div>
+    <div class="status" id="status">Conectando...</div>
+  </header>
+
+  <main class="grid">
+    <section class="card">
+      <div class="card-h">
+        <h2>Buscar Vagas</h2>
+        <div class="pill" id="pillSources">fontes</div>
+      </div>
+
+      <div class="form">
+        <label>
+          <span>Keyword</span>
+          <input id="keyword" placeholder="ex: dados, python, analista" />
+        </label>
+        <label>
+          <span>Local (opcional)</span>
+          <input id="location" placeholder="ex: Sao Paulo" />
+        </label>
+        <label>
+          <span>Limite</span>
+          <input id="limit" type="number" min="1" max="200" value="20" />
+        </label>
+      </div>
+
+      <div class="sources" id="sources"></div>
+
+      <div class="actions">
+        <button class="btn primary" id="btnSearch">Buscar agora</button>
+        <button class="btn" id="btnSaved">Ver salvas</button>
+      </div>
+
+      <div class="hint" id="hintCrawl"></div>
+      <div class="errors" id="errors"></div>
+    </section>
+
+    <section class="card span2">
+      <div class="card-h">
+        <h2>Resultados</h2>
+        <div class="pill" id="pillCount">0</div>
+      </div>
+      <div class="jobs" id="jobs"></div>
+    </section>
+
+    <section class="card span3">
+      <div class="card-h">
+        <h2>Match (IA)</h2>
+        <div class="pill" id="pillModel">modelo</div>
+      </div>
+
+      <div class="split">
+        <label>
+          <span>Curriculo (texto)</span>
+          <textarea id="resume" placeholder="Cole aqui seu curriculo em texto..."></textarea>
+        </label>
+        <label>
+          <span>Descricao da vaga (texto)</span>
+          <textarea id="jobdesc" placeholder="Cole a descricao da vaga aqui..."></textarea>
+        </label>
+      </div>
+
+      <div class="actions">
+        <button class="btn primary" id="btnScore">Calcular score</button>
+        <div class="score" id="score"></div>
+      </div>
+      <div class="hint">Dica: o backend salva scores em /matches quando voce envia job_url (a UI envia se voce clicar em "Usar no match").</div>
+    </section>
+  </main>
+
+  <dialog class="modal" id="modal">
+    <div class="modal-h">
+      <div class="modal-t" id="modalTitle">Preview</div>
+      <button class="x" id="modalClose" aria-label="Fechar">x</button>
+    </div>
+    <div class="modal-b" id="modalBody"></div>
+  </dialog>
+</body>
+</html>

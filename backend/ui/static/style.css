@@ -1,0 +1,205 @@
+﻿@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500..900&family=Space+Grotesk:wght@400;600&display=swap");
+
+:root{
+  --bg0:#0c0e12;
+  --bg1:#141826;
+  --text:#f2f3f5;
+  --muted:rgba(242,243,245,.72);
+  --brand:#ffb703;
+  --brand2:#fb7185;
+  --shadow:0 20px 60px rgba(0,0,0,.55);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  color:var(--text);
+  font-family:"Space Grotesk", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  background: radial-gradient(1200px 700px at 20% 10%, #2b1b3d 0%, transparent 55%),
+              radial-gradient(900px 600px at 80% 0%, #1a3b2a 0%, transparent 60%),
+              linear-gradient(180deg, var(--bg0), var(--bg1));
+  overflow-x:hidden;
+}
+
+.bg{
+  position:fixed; inset:-60px;
+  background:
+    radial-gradient(500px 200px at 20% 20%, rgba(255,183,3,.22), transparent 60%),
+    radial-gradient(500px 260px at 78% 22%, rgba(251,113,133,.20), transparent 60%),
+    radial-gradient(900px 420px at 50% 90%, rgba(56,189,248,.10), transparent 60%);
+  filter: blur(12px);
+  opacity:.85;
+  pointer-events:none;
+}
+
+.top{
+  position:sticky; top:0; z-index:10;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:18px 22px;
+  backdrop-filter: blur(14px);
+  background:rgba(10,12,16,.52);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.brand{display:flex; gap:14px; align-items:center}
+.mark{
+  width:42px; height:42px; border-radius:12px;
+  display:grid; place-items:center;
+  background:linear-gradient(135deg, var(--brand), var(--brand2));
+  color:#121318;
+  font-weight:800;
+  box-shadow: 0 12px 40px rgba(251,113,133,.20);
+}
+.title{font-family:"Fraunces", ui-serif, Georgia, serif; font-size:22px; letter-spacing:.2px}
+.subtitle{color:var(--muted); font-size:13px; margin-top:2px}
+
+.status{
+  font-size:13px;
+  color:var(--muted);
+  padding:8px 10px;
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:999px;
+  background:rgba(255,255,255,.04);
+}
+
+.grid{
+  max-width:1200px;
+  margin:18px auto 40px;
+  padding:0 18px;
+  display:grid;
+  grid-template-columns: 1.1fr 1.4fr 1.4fr;
+  gap:16px;
+}
+
+@media (max-width: 980px){
+  .grid{grid-template-columns:1fr;}
+  .span2,.span3{grid-column:auto}
+}
+
+.card{
+  background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:18px;
+  padding:16px;
+  box-shadow: var(--shadow);
+  animation: pop .5s ease both;
+}
+@keyframes pop{from{transform:translateY(10px); opacity:.0}to{transform:translateY(0); opacity:1}}
+
+.span2{grid-column: span 2}
+.span3{grid-column: span 3}
+
+.card-h{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:10px}
+.card h2{margin:0; font-size:16px; letter-spacing:.3px}
+.pill{
+  font-size:12px;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.12);
+  color:rgba(255,255,255,.80);
+  background:rgba(0,0,0,.18);
+}
+
+.form{display:grid; grid-template-columns:1fr; gap:10px}
+label span{display:block; font-size:12px; color:var(--muted); margin:0 0 6px}
+input, textarea{
+  width:100%;
+  padding:12px 12px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(10,12,16,.35);
+  color:var(--text);
+  outline:none;
+}
+input:focus, textarea:focus{border-color:rgba(255,183,3,.55); box-shadow:0 0 0 3px rgba(255,183,3,.14)}
+textarea{min-height:140px; resize:vertical}
+
+.sources{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
+.chk{
+  display:flex; align-items:center; gap:8px;
+  padding:8px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.04);
+  cursor:pointer;
+  user-select:none;
+}
+.chk input{width:14px; height:14px}
+.chk:hover{border-color:rgba(255,255,255,.24)}
+
+.actions{display:flex; align-items:center; gap:10px; margin-top:14px; flex-wrap:wrap}
+.btn{
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.06);
+  color:var(--text);
+  padding:10px 12px;
+  border-radius:14px;
+  cursor:pointer;
+  transition: transform .12s ease, background .12s ease, border-color .12s ease;
+}
+.btn:hover{transform: translateY(-1px); background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.22)}
+.btn.primary{
+  background:linear-gradient(135deg, rgba(255,183,3,.92), rgba(251,113,133,.82));
+  color:#121318;
+  border-color:rgba(255,255,255,.12);
+  font-weight:700;
+}
+
+.hint{margin-top:12px; color:var(--muted); font-size:12px; line-height:1.4}
+.errors{margin-top:12px; display:grid; gap:8px}
+.err{
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px solid rgba(251,113,133,.30);
+  background:rgba(251,113,133,.10);
+  color:rgba(255,255,255,.90);
+  font-size:12px;
+}
+
+.jobs{display:grid; gap:10px}
+.job{
+  padding:12px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(0,0,0,.16);
+}
+.job .row{display:flex; align-items:flex-start; justify-content:space-between; gap:10px; flex-wrap:wrap}
+.job .name{font-weight:700; line-height:1.2}
+.job .meta{margin-top:6px; color:var(--muted); font-size:12px}
+.job .meta b{color:rgba(255,255,255,.85); font-weight:600}
+.job .links{display:flex; gap:8px; margin-top:10px; flex-wrap:wrap}
+.job a{
+  color:rgba(255,255,255,.90);
+  text-decoration:none;
+  border-bottom:1px dashed rgba(255,255,255,.25);
+}
+.job a:hover{border-bottom-color:rgba(255,183,3,.70)}
+
+.split{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+@media (max-width: 980px){.split{grid-template-columns:1fr}}
+
+.score{font-size:14px; color:rgba(255,255,255,.85)}
+.score strong{color:var(--brand)}
+
+.modal{
+  width:min(720px, 94vw);
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(12,14,18,.92);
+  color:var(--text);
+  box-shadow: var(--shadow);
+}
+.modal::backdrop{background:rgba(0,0,0,.55)}
+.modal-h{display:flex; align-items:center; justify-content:space-between; padding:14px 14px 6px}
+.modal-t{font-weight:800}
+.x{
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.06);
+  color:var(--text);
+  border-radius:12px;
+  padding:6px 10px;
+  cursor:pointer;
+}
+.modal-b{padding:10px 14px 14px; color:rgba(255,255,255,.88); font-size:13px; line-height:1.5}
+.code{font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size:12px; padding:10px; border-radius:14px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.10)}
