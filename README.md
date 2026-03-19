@@ -46,3 +46,6 @@ LinkedIn/Catho estao desativados (login/termos).
 ## Erro PowerShell (Host)
 Se voce viu 'Cannot overwrite variable Host', use o parametro novo do script:
 - ./run_all.ps1 -BindHost 0.0.0.0
+
+
+<img width="1665" height="918" alt="image" src="https://github.com/user-attachments/assets/cf7847d1-d333-4076-bea6-2ce5a0d08c8e" />
